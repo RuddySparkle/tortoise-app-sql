@@ -4,11 +4,12 @@ This is nothing but database design
 # To SETUP
 Follow MR.Tendon's installation at https://github.com/TendonT52/postgreSQL-pgAdmin-installation-guide/tree/main
 
-# Continue
-Open 'Query tools' on your database and run create_table.sql file from this Repo. 
-After the creation of all neccessary tables, 
-Import every .csv files from this Repo to your table.
+# Table Creation
+Open 'Query tools' on your database and run all commands create_table.sql file from this Repo. 
+
+# Initialise Mockup Data in RuddySparkle Version
+Open 'Query tools' again and run all commands in insert_mock_data.sql.
 
 # To RUN
-Refresh [F5] and open 'Query Tools' again, then you'll be able to code. 
-Try basic_totrycommand.sql if you don't know where to start.
+Refresh!, then you'll be able to code.
+NOTE: try basic_totrycommand.sql if you don't know where to start.
