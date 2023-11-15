@@ -26,7 +26,6 @@ CREATE TABLE customer (
 
 CREATE TABLE provider (
     provider_id VARCHAR(10) PRIMARY KEY,
-    avg_rating_score NUMERIC(2,1) NOT NULL,
     FOREIGN KEY (provider_id) REFERENCES users(user_id)
 );
 
@@ -55,7 +54,7 @@ CREATE TABLE appointment_transaction (
     payment_method VARCHAR(13) NOT NULL,
     amount INT NOT NULL,
     timestamp TIMESTAMP WITHOUT TIME ZONE NOT NULL,
-    FOREIGN KEY (tansaction_id) REFERENCES appointment(tansaction_id)
+    FOREIGN KEY (transaction_id) REFERENCES appointment(transaction_id)
 );
 
 CREATE TABLE make_appointment (
