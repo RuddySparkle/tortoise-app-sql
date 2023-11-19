@@ -43,7 +43,7 @@ ORDER BY
 -- 3. Sender's email as sender_email
 -- 4. Every receiver's user_id represented by a set (or array with no repeated element) as receivers_id
 -- 5. Total number of text contains vulgar, racism, or offensive words sent by the sender as offensive_text_count
--- The example keyword is defined as the following: {'fuck','nigger','nigga','asian','shit'}
+-- The example keywords are defined as the following: {'fuck','nigger','nigga','asian','shit'}
 -- Note that this is just an example, We definitely do not promote insults on the community.
 
 SELECT
