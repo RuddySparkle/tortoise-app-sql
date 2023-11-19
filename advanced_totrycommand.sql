@@ -54,24 +54,21 @@ SELECT
 	offensive_text_count
 	
 FROM
-	(
-	SELECT 
+	(SELECT 
 		sender,
 		ARRAY_AGG(DISTINCT CASE
 			WHEN sender = provider_id THEN customer_id
 			ELSE provider_id END) AS receivers,
 		count(text) as offensive_text_count
-	FROM 
-		message JOIN chat
-		ON chat.chatroom_id = message.chatroom_id
+	FROM message JOIN chat
+	ON chat.chatroom_id = message.chatroom_id
 	WHERE
 		text LIKE '%fuck%' 
 		OR text LIKE '%nigger%'
 		OR text LIKE '%nigga%'
 		OR text LIKE '%asian%'
 		OR text LIKE '%shit%'
-	GROUP BY
-		sender
+	GROUP BY sender
 	) M
 	INNER JOIN users
 	ON sender = user_id
