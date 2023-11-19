@@ -1,13 +1,11 @@
--- Scenario:
+-- Scenario 1: Average Income
 -- The admin want to see the listed data
--- 1. Provider's name
--- 2. Provider's username
--- 3. Provider's total appointment
--- 4. Provider's average income received per appointment
--- which is sorted by the average income.
--- Show the provider if and only if he/she has committed at least 1 appointment.
--- If an appointment A finished in under 30 minutes or over 12 hours, It is possible that A could be an illegal action,
--- and the transaction of A won't be shown in the table until the inspection process is finished.
+-- Provider's username as username
+-- Provider's name as name
+-- Provider's total appointment as total_appointment
+-- Provider's average income as average_income_per_appointment
+-- which is sorted by the average income from high to low.
+-- Therefore, there are some constraints as we must show the provider if and only if he/she has committed at least 1 appointment. Moreover, if any appointment ‘A’ was finished in under 30 minutes or over 12 hours, it is possible that ‘A’ could be an illegal action, and the transaction of ‘A’ won't be shown in the table until the inspection process is finished.
 
 SELECT
  	users.username,
@@ -32,19 +30,16 @@ GROUP BY
 ORDER BY
 	average_income_per_appointment DESC
 
--- Scenario:
--- As we want the community of the app to be as less toxic as possible. 
--- The admin therefore wants to write a query command to find people who use vulgar words, racism words, or offensive words 
--- with the keywords as in the example in order to punish those people according to the company's measures. An investigation 
--- will be conducted by contacting the person who received the message as well.
+-- Scenario 2: Detect Inappropriate Message
+-- Since we wish to minimize the toxic behavior of the web-app's community. As a result, the administrator wishes to create a query command to locate persons who use vulgar, racist, or derogatory language with our example keywords in order to punish them in accordance with the company's policies. An investigation will be launched, and the victim who received the communication will be contacted as well.
 -- The admin want to see the listed data
--- 1. Sender's user_id as sender_id 
--- 2. Sender's name as sender_name
--- 3. Sender's email as sender_email
--- 4. Every receiver's user_id represented by a set (or array with no repeated element) as receivers_id
--- 5. Total number of text contains vulgar, racism, or offensive words sent by the sender as offensive_text_count
--- The example keywords are defined as the following: {'fuck','nigger','nigga','asian','shit'}
--- Note that this is just an example, We definitely do not promote insults on the community.
+-- Sender's user_id as sender_id 
+-- Sender's name as sender_name
+-- Sender's email as sender_email
+-- Every receiver's user_id represented by an array with unique elements as receivers_id
+-- The number of text contains profanity from the sender as offensive_text_count
+-- The example keywords are defined as the following: {'f**k','n****r','n**a','a***n','s**t'}
+-- *Note: We simply use profanity as an example.
 
 SELECT
 	user_id AS sender_id,
