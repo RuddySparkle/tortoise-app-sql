@@ -70,3 +70,32 @@ FROM
 	
 ORDER BY
 	offensive_text_count DESC
+
+-- Scenario 3:
+
+SELECT 
+	ROW_NUMBER() OVER() AS position,
+	A.name, 
+	A.email, 
+	A.address
+
+FROM 
+	users A
+
+WHERE A.user_id IN (
+	SELECT customer_id 
+	FROM (
+        SELECT customer_id, SUM(price) AS total_payment 
+		FROM (
+            SELECT * 
+			FROM (
+				SELECT appointment_id, customer_id 
+				FROM make_appointment)
+            	NATURAL JOIN
+            	appointment
+        )
+        GROUP BY customer_id
+        ORDER BY SUM(price) DESC
+        LIMIT 3
+    )
+)
